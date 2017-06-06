@@ -1,0 +1,148 @@
+@import '../../theme/sass/auth';
+
+.loginContainer {
+  text-align: center;
+  background-color: white;
+  color: black;
+  .loginSegment {
+    width: 28%;
+    display: inline-block;
+    div {
+      text-align: center;
+      font-size: 15px;
+      margin-top: 5%;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    .signin {
+      padding-bottom: 5%;
+    }
+    .horizontalLine {
+      margin-left: 0 !important;
+      padding: 0 !important;
+      hr {
+        border-top: 1px solid gainsboro !important;
+      }
+    }
+    .logintitle {
+      width: 60%;
+      display: inline-block;
+      img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+    .inputbutton {
+      height: 58px;
+      line-height: 2.8;
+      margin: 3% 0 4% 0;
+    }
+    .emaildiv {
+      margin-bottom: 5px !important;
+    }
+    .submitButton {
+      margin-top: 7%;
+    }
+    .inputbox {
+      border-radius: 1px !important;
+      background-color: white !important;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0px !important;
+      padding-left: 2%;
+      border: thin solid #dcdcdc !important;
+      outline: none;
+      box-shadow: none !important;
+    }
+    .inputbox:focus, .inputbox:active {
+      border-color: #A5C9BB !important;
+      outline: 0 !important;
+      outline: thin dotted \9
+    ;
+      /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6); */
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(82, 168, 236, .6);
+      box-shadow: inset 0 1px 1px rgba(0, 220, 0, .075), 0 0 8px rgba(0, 225, 0, .2);
+    }
+    .passwordtext {
+      margin-top: 0px !important;
+    }
+    .signinText {
+      margin-top: 7.8%;
+      font-family: bold;
+      font-size: 17px;
+    }
+    .emailpass {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(0, 171, 148);
+      color: white;
+      font-size: medium;
+      font-weight: bold;
+      border: none;
+    }
+    .forgotlink {
+      color: #06683b;
+      font-family: bold;
+      font-size: 17px;
+    }
+    .forgotline {
+      position: relative;
+      hr {
+        border-top: 1px solid gainsboro !important;
+      }
+    }
+    .disableSubmit {
+      background-color: #00ABAA;
+      cursor: default !important;
+    }
+    .disableSubmit :hover {
+      background-color: #00ABAA !important;
+      cursor: default !important;
+    }
+  }
+  .forgotPassword {
+    cursor: pointer;
+  }
+  .forgotPassword:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 700px) {
+  .loginSegment {
+    width: 100% !important;
+  }
+  .horizontalLine {
+    display: inline-block;
+    width: 35%;
+    hr {
+      margin-top: -4px !important;
+      margin-bottom: 0 !important;
+    }
+  }
+  .signinText {
+    display: inline-block;
+    width: 27%;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .loginSegment {
+    width: 60% !important;
+  }
+  .horizontalLine {
+    display: inline-block;
+    width: 35%;
+    hr {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+  .signinText {
+    display: inline-block;
+    width: 27%;
+  }
+}

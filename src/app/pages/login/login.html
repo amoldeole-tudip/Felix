@@ -1,0 +1,46 @@
+<div class="loginContainer">
+    <div class="row" class="loginSegment">
+        <div class="col-md-12">
+            <!--<div class="logintitle"><img [src]="LogoImage" (click)="navigateToHome()"></div>-->
+        </div>
+        <div class="col-md-12 signin">
+            <br>
+            <br>
+            <br>
+            <br>
+           <!-- <div class="col-md-4 horizontalLine">
+                <hr>
+            </div>
+            <div class="col-md-4 signinText">Sign In</div>
+            <div class="col-md-4 horizontalLine">
+                <hr>
+            </div>-->
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+            <div class="form-group row col-md-12 inputbutton emaildiv"
+                 [ngClass]="{'has-error': (!form.get('username').valid && form.get('username').touched), 'has-success': (form.get('username').valid && form.get('username').touched)}">
+                <input formControlName="username" type="email" class="form-control inputbox" id="inputEmail3"
+                       placeholder="Email">
+            </div>
+            <div class="form-group row col-md-12 inputbutton passwordtext"
+                 [ngClass]="{'has-error': (!form.get('password').valid && form.get('password').touched), 'has-success': (form.get('password').valid && form.get('password').touched)}">
+                <input formControlName="password" type="password" class="form-control inputbox" id="inputPassword3"
+                       placeholder="Password">
+
+            </div>
+            <div class="form-group row col-md-12 inputbutton submitButton">
+                <input [ngClass]="{'disableSubmit' : (!form.valid || submitted) }" [disabled]="!form.valid || submitted"
+                       type="submit" class="emailpass" value="SIGN IN">
+            </div>
+        </form>
+        <!--<div class="col-md-12 signin">
+            <div class="col-md-12">
+                <span>Don't have an account?</span>
+                <span class="forgotPassword" (click)="navigateToSignUp()">Sign Up</span>
+            </div>
+            <div class="col-md-12">
+                <span class="forgotPassword" (click)="navigateToForgotPassword()">Forgot Password</span>
+            </div>
+        </div>-->
+    </div>
+</div>

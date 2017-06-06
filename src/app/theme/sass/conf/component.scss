@@ -1,0 +1,42 @@
+// MyDatePicker  calendar css
+
+.currmonth:hover, .sunday:hover  {
+  background-color: #06683b !important;
+  color: white !important;
+}
+.currmonth, .sunday{
+  color: grey !important;
+}
+.caltable > thead > tr > th{
+  background-color: grey !important;
+  color: white !important;
+}
+.selectedday > div.currmonth{
+  border: 1px solid green !important;
+}
+span.icon {
+  color: grey !important;
+}
+button.btnpicker:hover, .btnclear:hover{
+  background-color: #06683b !important;
+  color: white !important;
+}
+
+span.icon.icon-calendar:hover, span.icon.icon-cross:hover {
+  color: white !important;
+}
+// end calendar css
+
+.newIdea {
+      color: #06683b;
+      font-size: 17px;
+}
+
+.userName{
+  cursor: pointer;
+  color: #49b050 !important;
+}
+
+.userName:hover{
+  color: #49b050;
+}

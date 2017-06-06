@@ -1,0 +1,224 @@
+@import "../../theme/sass/_auth.scss";
+.removeiIcon{
+  color: red;
+  font-size: 15pt;
+  position: relative;
+  cursor: pointer;
+  font-weight: 100;
+  line-height: 30px;
+}
+.submitButton{
+  padding: 15px 34px;
+  text-align: right;
+  .previous{
+    padding: 7px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #C9C9C9;
+  }
+  .submit{
+    padding: 7px 33px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #00ABAA;
+  }
+}
+
+.filter_attr{
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0px;
+  border: 1px solid $border;
+}
+
+.squaredThree {
+    display: block;
+    position: relative;
+  .inputText{
+    display: inline-block;
+    bottom: 4px;
+    color: #676464;
+    position: relative;
+  }
+    label {
+      width: 13px;
+      height: 13px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #FFFFFF;
+      background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+      border-radius: 1px;
+      box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.93);
+      &:after {
+        content: "\f00c";
+        width: 13px;
+        height: 13px;
+        font-size: 10px;
+        font-weight: 100;
+        color: white;
+        border-radius: 1px;
+        padding: 0.5px;
+        position: absolute;
+        border-right: none;
+        background: #00ABAA;
+        opacity: 0;
+      }
+    }
+    input[type=checkbox] {
+      visibility: hidden;
+      &:checked + label:after {
+        opacity: 1;
+      }
+    }
+}
+
+.radioCheck {
+  display: block;
+  position: relative;
+  margin-top: 20px;
+  .inputText{
+    display: inline-block;
+    bottom: 4px;
+    position: relative;
+  }
+  label {
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    background: #fbfbfb;
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    border-radius: 50%;
+    box-shadow: inset 0 0px 0px white, 0px 0px 3px #040404;
+    &:after {
+      content: "\f192";
+      width: 15px;
+      height: 15px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #00ABAA;
+      border-radius: 50%;
+      padding: 0px 0px 0 -1px;
+      bottom: 0px;
+      left: -1px;
+      position: absolute;
+      border-right: none;
+      background: #ffffff;
+      opacity: 0;
+    }
+  }
+  input[type=radio] {
+    visibility: hidden;
+    &:checked + label:after {
+      opacity: 1;
+    }
+  }
+}
+
+.blockElement{
+  display: inline-block;
+  width: 100%;
+}
+.drop-down-radio{
+  bottom: 28px;
+  position: relative;
+}
+.fontAttribute{
+  color: #999;;
+}
+.opt_check{
+  padding: 20px 0px 30px;
+}
+.bs-wizard {
+  margin-top: 0px;
+}
+
+/*Form Wizard*/
+.bs-wizard {
+  padding: 0 0 16px 0;
+}
+.bs-wizard > .bs-wizard-step {
+  padding: 0;
+  position: relative;
+}
+.bs-wizard > .bs-wizard-step + .bs-wizard-step {}
+.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
+  color: #9f9999;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.bs-wizard > .bs-wizard-step .bs-wizard-info {
+  color: #999;
+  font-size: 14px;
+}
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot {
+  position: absolute;
+  width: 20px;
+  content: "";
+  height: 20px;
+  display: block;
+  background: #DBD9D9;
+  top: 27px;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
+  border-radius: 50%;
+}
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {
+  font-family: FontAwesome;
+  content: "\F058";
+  font-size: 23px;
+  color: #00AAA9;
+  background: #f5f5f5;
+  border-radius: 50px;
+  position: absolute;
+  top: 2px;
+  left: 0px;
+}
+.bs-wizard > .bs-wizard-step > .progress {
+  position: relative;
+  border-radius: 0px;
+  background: #DBD9D9;
+  height: 6px;
+  box-shadow: none;
+  left: 50%;
+  margin: 20px 0;
+}
+.bs-wizard > .bs-wizard-step > .progress > .progress-bar {
+  width: 0px;
+  box-shadow: none;
+  background: #337ab7;
+}
+.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {
+  width:100%;
+}
+.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {
+  width:0%;
+}
+.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {
+  width:0%;
+}
+.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {
+  width: 100%;
+}
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {
+  background-color: #DBD9D9;
+}
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {
+  opacity: 0;
+}
+.bs-wizard > .bs-wizard-step:first-child  > .progress {
+  left: 50%;
+  width: 100%;
+}
+.bs-wizard > .bs-wizard-step:last-child  > .progress {
+  width: 0%;
+}
+.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot{
+  pointer-events: none;
+}
+/*END Form Wizard*/

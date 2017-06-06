@@ -1,0 +1,20 @@
+<div class="page-top" baScrollPosition maxHeight="50" (scrollChange)="scrolledChanged($event)"
+     [ngClass]="{scrolled: isScrolled}">
+  <a href="#/dashboard" class="al-logo clearfix">FELIX</a>
+  <div class="activeTitle">
+    {{ activePageTitle | uppercase }}
+  </div>
+  <div class="user-profile">
+    <span class=""><b></b> </span><a onclick="return"><span class="username">{{name}}</span></a>
+    <div class="dropdown al-user-profile">
+      <a class="profile-toggle-link dropdown-toggle" id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
+        <span class="profile-color">{{userName}} <i class="fa fa-angle-down"></i></span>
+      </a>
+      <ul class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">
+        <li class="dropdown-item"><a (click)="loggedOff()" class="signout">Log Out</a>
+        <div class="loggedOffArrow"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
