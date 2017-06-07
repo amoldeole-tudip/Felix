@@ -3,200 +3,129 @@
         <div class="main-title">General Campaign</div>
         <div class="row bs-wizard">
             <div class="col-xs-4 bs-wizard-step" [ngClass]="(this.step==1)?'active':'complete'">
-                <div class="progress"><div class="progress-bar"></div></div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
                 <span class="bs-wizard-dot"></span>
-                <div class="text-center bs-wizard-stepnum text-color"><span class="text-color">Create Campaign</span></div>
+                <div class="text-center bs-wizard-stepnum text-color"><span class="text-color">Create Campaign</span>
+                </div>
             </div>
             <div class="col-xs-4 bs-wizard-step" [ngClass]="(this.step==2)?'active':'disabled'"><!-- complete -->
-                <div class="progress"><div class="progress-bar"></div></div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
                 <span class="bs-wizard-dot"></span>
                 <div class="text-center bs-wizard-stepnum">Messaging</div>
             </div>
             <div class="col-xs-4 bs-wizard-step disabled"><!-- complete -->
-                <div class="progress"><div class="progress-bar"></div></div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
                 <span class="bs-wizard-dot"></span>
-                <div class="text-center bs-wizard-stepnum">Sheduling & Goals</div>
+                <div class="text-center bs-wizard-stepnum">Scheduling & Goals</div>
             </div>
         </div>
 
         <form [formGroup]="campaignForm" (ngSubmit)="onSubmit()" novalidate>
             <div class="campaign" *ngIf="this.step == 1">
-        <!-- Hero Detail Controls -->
-        <div class="form-group">
-            <input class="form-control inputName" formControlName="campaign_name" placeholder="Campaign Name (Mandatory)">
-        </div>
-        <div class="noPadding">
-            <div class="title">Platform</div>
-            <div class="col-md-12 noPadding">
-
-                <div class="squaredThree fa col-md-2 noPadding">
-                    <input type="checkbox" id="Android" formControlName="android"/>
-                    <label for="Android"></label>
-                    <div class="inputText">Android</div>
+                <!-- Hero Detail Controls -->
+                <div class="form-group">
+                    <input class="form-control inputName" formControlName="campaign_name" placeholder="Campaign Name (Mandatory)">
                 </div>
-
-                <div class="squaredThree fa col-md-2 noPadding">
-                    <input type="checkbox" id="iOS" formControlName="iOS"/>
-                    <label for="iOS"></label>
-                    <div class="inputText">iOS</div>
-                </div>
-
-                <div class="squaredThree fa col-md-2 noPadding">
-                    <input type="checkbox" id="Web" formControlName="web"/>
-                    <label for="Web"></label>
-                    <div class="inputText">Web</div>
-                </div>
-            </div>
-        </div>
-        <div class="">
-            <div class="title col-md-12">Target Audience</div>
-
-            <div class="radioCheck fa col-md-12 noPadding">
-                <input type="radio" id="AllUser" value="All Users" formControlName="target_audience"/>
-                <label for="AllUser"></label>
-                <div class="inputText">All Users</div>
-            </div>
-
-            <div class="radioCheck fa col-md-12 noPadding">
-                <input type="radio" id="RegisteredUsers" value="Registered Users" formControlName="target_audience"/>
-                <label for="RegisteredUsers"></label>
-                <div class="inputText">Registered Users</div>
-            </div>
-
-            <div class="radioCheck fa col-md-12 noPadding">
-                <input type="radio" id="UnregisteredUsers" value="Unregistered Users" formControlName="target_audience"/>
-                <label for="UnregisteredUsers"></label>
-                <div class="inputText">Unregistered Users</div>
-            </div>
-
-            <div class="radioCheck fa col-md-12 noPadding">
-                <input type="radio" id="custom_Audiance" value="Custom" formControlName="target_audience"/>
-                <label for="custom_Audiance"></label>
-                <div class="inputText">
-                    <select class="login-input form-group form-control col-md-6" formControlName="target_audience">
-                    <option value="" disabled="disabled" selected hidden>Select a Custom Segment</option>
-                    <option *ngFor="let seg of segment" value="{{seg.segment_name}}">{{seg.segment_name}}</option>
-                </select>
-                </div>
-            </div>
-
-        </div>
-        <div class="title">Trigger</div>
-        <div class="subTitile">IF:</div>
-        <div>
-            <div class="well well-lg">
-                <div>
+                <br>
+                <div class="noPadding">
+                    <div class="title">Platform</div>
+                    <br>
                     <div class="col-md-12 noPadding">
-                        <div class="col-md-2 noPadding">
-                            <label class="center-block noPadding user-done">If user has done:</label>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <select class="form-control" formControlName="user_action">
-                                    <option value="" disabled="disabled" selected hidden>Select User/Derived Actions
-                                    </option>
-                                    <option *ngFor="let action of actions" value="{{action.action_name}}">{{action.action_name}}</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div formArrayName="attributes" class="attributeBox">
-                    <div *ngFor="let attributes of attributes.controls; let i=index" [formGroupName]="i" >
-                        <!-- The repeated address template -->
-                            <div class="col-md-12">
-                                <div class="col-md-4">
-                                    <p class="fontAttribute">Attribute{{i + 1}}</p>
-                                </div>
-                                <div class="col-md-12 noPadding">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <select class="form-control" formControlName="attribute_name">
-                                                <option value="" disabled="disabled" selected hidden>Select Attribute
-                                                </option>
-                                                <option *ngFor="let attr of dropdown_attributes" [value]="attr">{{attr}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-control" formControlName="attribute_value">
-                                            <option value="" disabled="disabled" selected hidden>Select Value
-                                            </option>
-                                            <option *ngFor="let attr_value of attribute_values" [value]="attr_value">{{attr_value}}</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <input class="form-control" formControlName="inputValue" placeholder="Enter Value">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2" *ngIf="i+1==this.campaignForm.value.attributes.length">
-                                        <i class="glyphicon glyphicon-remove-circle removeiIcon" aria-hidden="true" (click)="removeAttribute(i)"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        <br>
-                        <!-- End of the repeated address template -->
-                    </div>
-                    <div class="add">
-                        <div class="glyphicon glyphicon-plus" (click)="addAttribute()"><span class="add">ADD MORE ATTRIBUTES</span></div>
-                    </div>
-                </div>
-                <div class="textNote">User Attribute based filters are not supported for triggers on install event.</div>
-            </div>
-        </div>
 
-        <div class="subTitile">AND</div>
+                        <div class="squaredThree fa col-md-2 noPadding">
+                            <input type="checkbox" id="Android" formControlName="android"/>
+                            <label for="Android"></label>
+                            <div class="inputText">Android</div>
+                        </div>
+
+                        <div class="squaredThree fa col-md-2 noPadding">
+                            <input type="checkbox" id="iOS" formControlName="iOS"/>
+                            <label for="iOS"></label>
+                            <div class="inputText">iOS</div>
+                        </div>
+
+                        <div class="squaredThree fa col-md-2 noPadding">
+                            <input type="checkbox" id="Web" formControlName="web"/>
+                            <label for="Web"></label>
+                            <div class="inputText">Web</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="title col-md-12">Target Audience</div>
+
+                    <div class="radioCheck fa col-md-12 noPadding">
+                        <input type="radio" id="AllUser" value="All Users" formControlName="target_audience"/>
+                        <label for="AllUser"></label>
+                        <div class="inputText">All Users</div>
+                    </div>
+
+                    <div class="radioCheck fa col-md-12 noPadding">
+                        <input type="radio" id="RegisteredUsers" value="Registered Users"
+                               formControlName="target_audience"/>
+                        <label for="RegisteredUsers"></label>
+                        <div class="inputText">Registered Users</div>
+                    </div>
+
+                    <div class="radioCheck fa col-md-12 noPadding">
+                        <input type="radio" id="UnregisteredUsers" value="Unregistered Users"
+                               formControlName="target_audience"/>
+                        <label for="UnregisteredUsers"></label>
+                        <div class="inputText">Unregistered Users</div>
+                    </div>
+
+                    <div class="radioCheck fa col-md-12 noPadding">
+                        <input type="radio" id="custom_Audiance" value="Custom" formControlName="target_audience"/>
+                        <label for="custom_Audiance" class="drop-radio"></label>
+                        <div class="inputText">
+                            <select class="login-input form-group form-control col-md-6"
+                                    formControlName="target_audience">
+                                <option value="" disabled="disabled" selected hidden>Select a Custom Segment</option>
+                                <option *ngFor="let seg of segment" value="{{seg.segment_name}}">{{seg.segment_name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <div class="title">Trigger</div>
+                <div class="subTitile">IF:</div>
                 <div>
                     <div class="well well-lg">
-                        <div formArrayName="filters">
-                            <div *ngFor="let filters of filters.controls; let i=index" [formGroupName]="i" >
-                                <div class="col-md-12 noPadding">
-                                    <div class="col-md-12 noPadding">
-                                        <p class="fontAttribute">Filter1</p>
+                        <div>
+                            <div class="col-md-12 noPadding">
+                                <div class="col-md-2 noPadding lableDelay">
+                                    <label class="center-block noPadding user-done">If user has done:</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <select class="form-control" formControlName="user_action">
+                                            <option value="" disabled="disabled" selected hidden>Select User/Derived
+                                                Actions
+                                            </option>
+                                            <option *ngFor="let action of actions" value="{{action.action_name}}">
+                                                {{action.action_name}}
+                                            </option>
+                                        </select>
                                     </div>
-
-                                    <div class="col-md-3 noPadding">
-                                        <div class="form-group">
-                                            <select class="form-control" formControlName="filter_user_action">
-                                                <option value="" disabled="disabled" selected hidden>Select Actions
-                                                <option *ngFor="let condition of conditions; let i = index" [selected]="i == 0" value="{{condition.id}}">{{condition.condition_name}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <select class="form-control" formControlName="filter_action_name">
-                                                <option value="" disabled="disabled" selected hidden>Select User/Attributes Actions
-                                                <option *ngFor="let user_action of user_actions;" value="1">{{user_action.action_name}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 noPadding">
-                                        <div class="form-group">
-                                            <select class="form-control" formControlName="action_input">
-                                                <option value="" disabled="disabled" selected hidden>Select Value
-                                                <option *ngFor="let delay of delays;" value="1">{{delay.delay_type}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <input class="form-control" formControlName="action_value" placeholder="Enter Value">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-1" *ngIf="i+1==this.campaignForm.value.filters.length">
-                                        <i aria-hidden="true" class="glyphicon glyphicon-remove-circle removeiIcon" (click)="removeFilters(i)"></i>
-                                    </div>
+                                </div>
+                                <div class="col-md-1 alignRemove noPadding">
+                                    <i aria-hidden="true" class="ion-ios-close-outline removeIcon"></i>
                                 </div>
                             </div>
                         </div>
-                        <div formArrayName="Attr" class="filter_attr">
-                            <div *ngFor="let Attr of Attr.controls; let i=index" [formGroupName]="i" >
+                        <div formArrayName="attributes" class="attributeBox">
+                            <div *ngFor="let attributes of attributes.controls; let i=index" [formGroupName]="i">
                                 <!-- The repeated address template -->
                                 <div class="col-md-12">
                                     <div class="col-md-4">
@@ -205,27 +134,34 @@
                                     <div class="col-md-12 noPadding">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <select class="form-control" formControlName="filter_attribute_action">
-                                                    <option value="" disabled="disabled" selected hidden>Select Attribute
+                                                <select class="form-control" formControlName="attribute_name">
+                                                    <option value="" disabled="disabled" selected hidden>Select
+                                                        Attribute
                                                     </option>
-                                                    <option *ngFor="let attr of dropdown_attributes" [value]="attr">{{attr}}</option>
+                                                    <option *ngFor="let attr of dropdownAttributes" [value]="attr">
+                                                        {{attr}}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <select class="form-control" formControlName="filter_attribute_name">
+                                            <select class="form-control" formControlName="attribute_value">
                                                 <option value="" disabled="disabled" selected hidden>Select Value
                                                 </option>
-                                                <option *ngFor="let attr_val of attribute_values" [value]="attr_val">{{attr_val}}</option>
+                                                <option *ngFor="let attr_value of attributeValues" [value]="attr_value">
+                                                    {{attr_value}}
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <input class="form-control" formControlName="filter_attribute_name" placeholder="Enter Value">
+                                                <input class="form-control" formControlName="inputValue"
+                                                       placeholder="Enter Value">
                                             </div>
                                         </div>
-                                        <div class="col-md-2" *ngIf="i+1==this.campaignForm.value.Attr.length">
-                                            <i class="glyphicon glyphicon-remove-circle removeiIcon" aria-hidden="true" (click)="removeFiltersAttribute(i)"></i>
+                                        <div class="col-md-2" *ngIf="i+1==this.campaignForm.value.attributes.length">
+                                            <i class="ion-ios-close-outline removeIcon" aria-hidden="true"
+                                               (click)="removeAttribute(i)"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -233,44 +169,184 @@
                                 <!-- End of the repeated address template -->
                             </div>
                             <div class="add">
-                                <div class="glyphicon glyphicon-plus" (click)="addFiltersAttribute()"><span class="add">ADD MORE ATTRIBUTES</span></div>
+                                <div class="glyphicon glyphicon-plus" (click)="addAttribute()"><span class="add"> ADD MORE ATTRIBUTES</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="textNote">User Attribute based filters are not supported for triggers on install
+                            event.
+                        </div>
+                    </div>
+                </div>
+                <div class="subTitile">AND:</div>
+                <div>
+                    <div class="well well-lg">
+                        <div formArrayName="filters">
+                            <div [formGroupName]="i"
+                                 *ngFor="let filter of campaignForm.controls.filters.controls; let i = index">
+                                <div class="col-md-12 noPadding">
+                                    <div class="col-md-12 noPadding">
+                                        <p class="fontAttribute">Filter{{i + 1}}</p>
+                                    </div>
+
+                                    <div class="col-md-3 noPadding">
+                                        <div class="form-group">
+                                            <select class="form-control" formControlName="filter_user_action">
+                                                <option value="" disabled="disabled" selected hidden>Select Actions
+                                                <option *ngFor="let condition of conditions; let i = index"
+                                                        [selected]="i == 0" value="{{condition.id}}">
+                                                    {{condition.condition_name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <select class="form-control" formControlName="filter_action_name">
+                                                <option value="" disabled="disabled" selected hidden>Select
+                                                    User/Attributes Actions
+                                                <option *ngFor="let user_action of userActions;" value="1">
+                                                    {{user_action.action_name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 noPadding">
+                                        <div class="form-group">
+                                            <select class="form-control" formControlName="action_input">
+                                                <option value="" disabled="disabled" selected hidden>Select Value
+                                                <option *ngFor="let delay of delays;" value="1">{{delay.delay_type}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <input class="form-control" formControlName="action_value"
+                                                   placeholder="Enter Value">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-1" *ngIf="i+1==this.campaignForm.value.filters.length">
+                                        <i aria-hidden="true" class="ion-ios-close-outline removeIcon"
+                                           (click)="removeFilter(i)"></i>
+                                    </div>
+                                </div>
+
+                                <div class="attributeBox">
+                                    <div formArrayName="filterAttributes">
+                                        <div [formGroupName]="x"
+                                             *ngFor="let filterAttributes of filter.controls.filterAttributes.controls; let x = index">
+                                            <!-- The repeated address template -->
+                                            <div class="col-md-12">
+                                                <div class="col-md-4">
+                                                    <p class="fontAttribute">Attribute{{x + 1}}</p>
+                                                </div>
+                                                <div class="col-md-12 noPadding">
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <select class="form-control"
+                                                                    formControlName="filter_attribute_action">
+                                                                <option value="" disabled="disabled" selected hidden>
+                                                                    Select Attribute
+                                                                </option>
+                                                                <option *ngFor="let attr of dropdownAttributes"
+                                                                        [value]="attr">{{attr}}
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <select class="form-control"
+                                                                formControlName="filter_attribute_name">
+                                                            <option value="" disabled="disabled" selected hidden>Select
+                                                                Value
+                                                            </option>
+                                                            <option *ngFor="let attr_val of attributeValues"
+                                                                    [value]="attr_val">{{attr_val}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <input class="form-control"
+                                                                   formControlName="filter_attribute_value"
+                                                                   placeholder="Enter Value">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2"
+                                                         *ngIf="x+1==this.campaignForm.value.filters[i].filterAttributes.length">
+                                                        <i class="ion-ios-close-outline removeIcon"
+                                                           aria-hidden="true" (click)="removeFilterAttribute(i,x)"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <!-- End of the repeated address template -->
+                                        </div>
+                                    </div>
+
+                                    <div class="add">
+                                        <div class="glyphicon glyphicon-plus" (click)="addFilterAttributes(i)"><span
+                                                class="add"> ADD MORE ATTRIBUTES</span></div>
+                                    </div>
+                                    <br>
+                                </div>
+                                <br>
+                                <br>
                             </div>
                         </div>
                     </div>
 
                     <div class="add">
-                        <div class="glyphicon glyphicon-plus" (click)="addFilters()"><span class="add">ADD MORE FILTERS</span></div>
+                        <div class="glyphicon glyphicon-plus" (click)="addFilter()"><span
+                                class="add"> ADD MORE FILTERS</span></div>
                     </div>
+
                 </div>
-<br>
+                <br>
                 <br>
 
-        <div class="subTitile">THEN</div>
+                <div class="subTitile">THEN:</div>
                 <div>
                     <div class="well well-lg">
                         <div>
                             <div class="col-md-12 noPadding">
-                                <div class="col-md-2 noPadding">
-                                    <label class="center-block noPadding user-done add_color">Trigger the message</label>
+                                <div class="col-md-2 noPadding lableTriggerDelay">
+                                    <label class="center-block noPadding user-done add_color">Trigger the
+                                        message</label>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 adjustDelay">
                                     <div class="form-group">
-                                        <input class="form-control" formControlName="trigger_message" placeholder="Enter Value">
+                                        <input class="form-control" formControlName="trigger_message"
+                                               placeholder="Enter Value">
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 adjustDelay">
                                     <div class="form-group">
                                         <select class="form-control" formControlName="trigger_message_delay">
-                                            <option *ngFor="let delay of delays; let i = index" [selected]="i == 0" value="{{delay.id}}">{{delay.delay_type}}</option>
+                                            <option *ngFor="let delay of delays; let i = index" [selected]="i == 0"
+                                                    value="{{delay.id}}">{{delay.delay_type}}
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-2 noPadding">
-                                    <label class="center-block noPadding user-done add_color">after the "IF" action</label>
+                                    <label class="center-block noPadding user-done add_color">after the "IF"
+                                        action</label>
                                 </div>
                             </div>
 
-                            <div class="textNote">The user has to do all the above actions within this time after doing the first action</div>
+                            <div class="textNote">The user has to do all the above actions within this time after doing
+                                the first action
+                            </div>
                             <br>
                             <br>
                             <div class="squaredThree fa col-md-4 noPadding">
@@ -282,18 +358,22 @@
                             <br>
                             <div>
                                 <div class="col-md-12 noPadding">
-                                    <div class="col-md-2 noPadding">
-                                        <label class="center-block noPadding user-done add_color">Use Min Delay of</label>
+                                    <div class="col-md-2 noPadding lableDelay">
+                                        <label class="center-block noPadding user-done add_color">Use Min Delay
+                                            of</label>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 adjustDelay">
                                         <div class="form-group">
-                                            <input class="form-control" formControlName="min_delay" placeholder="Enter Value">
+                                            <input class="form-control" formControlName="min_delay"
+                                                   placeholder="Enter Value">
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 adjustDelay">
                                         <div class="form-group">
                                             <select class="form-control" formControlName="min_intel_delay">
-                                                <option *ngFor="let delay of delays; let i = index" [selected]="i == 0" value="{{delay.id}}">{{delay.delay_type}}</option>
+                                                <option *ngFor="let delay of delays; let i = index" [selected]="i == 0"
+                                                        value="{{delay.id}}">{{delay.delay_type}}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -302,18 +382,22 @@
 
                             <div>
                                 <div class="col-md-12 noPadding">
-                                    <div class="col-md-2 noPadding">
-                                        <label class="center-block noPadding user-done add_color">Use Max Delay of</label>
+                                    <div class="col-md-2 noPadding lableDelay">
+                                        <label class="center-block noPadding user-done add_color">Use Max Delay
+                                            of</label>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 adjustDelay">
                                         <div class="form-group">
-                                            <input class="form-control" formControlName="max_delay" placeholder="Enter Value">
+                                            <input class="form-control" formControlName="max_delay"
+                                                   placeholder="Enter Value">
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 adjustDelay">
                                         <div class="form-group">
                                             <select class="form-control" formControlName="max_intel_delay">
-                                                <option *ngFor="let delay of delays; let i = index" [selected]="i == 0" value="{{delay.id}}">{{delay.delay_type}}</option>
+                                                <option *ngFor="let delay of delays; let i = index" [selected]="i == 0"
+                                                        value="{{delay.id}}">{{delay.delay_type}}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -327,13 +411,20 @@
                 </div>
             </div>
             <div class="submitButton">
-                <button type="reset" (click)="previous()" [disabled]="campaignForm.pristine" class="previous btn">Previous</button> &nbsp;
-                <button type="submit" (click)="revert()" [disabled]="campaignForm.pristine ||!campaignForm.valid || submitted" class="btn submit">Next</button>
+                <button type="reset" (click)="previous()" [disabled]="campaignForm.pristine" class="previous btn">
+                    PREVIOUS
+                </button> &nbsp;
+                <button type="submit" [disabled]="campaignForm.pristine ||!campaignForm.valid || submitted"
+                        class="btn submit">NEXT
+                </button>
             </div>
         </form>
-        <!--<p>Create Campaign value: {{ campaignForm.value | json}}</p>-->
     </div>
 </div>
+
 <div *ngIf="this.step == 2">
+    <br>
+    <br>
     <h3>Campaign created successfully</h3>
+    <pre>form value: <br>{{campaignForm.value | json}}</pre>
 </div>

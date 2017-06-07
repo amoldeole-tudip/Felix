@@ -65,7 +65,7 @@ export const ADMIN_MENU = [
         ]
       },
       {
-        path: '',
+        path: 'audience',
         data: {
           menu: {
             title: 'Audience',
@@ -77,7 +77,7 @@ export const ADMIN_MENU = [
         }
       },
       {
-        path: '',
+        path: 'settings',
         data: {
           menu: {
             title: 'Settings',

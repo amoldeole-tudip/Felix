@@ -1,26 +1,35 @@
 @import "../../theme/sass/_auth.scss";
-.removeiIcon{
+.removeIcon{
   color: red;
-  font-size: 15pt;
+  font-size: 16pt;
   position: relative;
   cursor: pointer;
   font-weight: 100;
   line-height: 30px;
 }
+.alignRemove{
+  float: right;
+  text-align: right;
+}
 .submitButton{
   padding: 15px 34px;
   text-align: right;
   .previous{
-    padding: 7px 20px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
     color: #fff;
     background-color: #C9C9C9;
   }
   .submit{
-    padding: 7px 33px;
-    font-size: 14px;
+    padding: 10px 33px;
+    font-size: 13px;
+    font-weight: 700;
     color: #fff;
     background-color: #00ABAA;
+  }
+  .btn.disabled, .btn:disabled {
+    opacity: 0.6;
   }
 }
 
@@ -36,34 +45,32 @@
     position: relative;
   .inputText{
     display: inline-block;
-    bottom: 4px;
-    color: #676464;
+    bottom: 6px;
+    color: #777777;
     position: relative;
   }
     label {
-      width: 13px;
-      height: 13px;
+      width: 12px;
+      height: 12px;
       cursor: pointer;
       position: absolute;
       top: 0;
       left: 0;
       background: #FFFFFF;
       background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-      border-radius: 1px;
-      box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.93);
+      box-shadow: inset 1px 1px 1px white, 0px 0px 2px 1px rgba(0, 0, 0, 0.93);
       &:after {
         content: "\f00c";
-        width: 13px;
-        height: 13px;
+        width: 12px;
+        height: 12px;
         font-size: 10px;
         font-weight: 100;
         color: white;
-        border-radius: 1px;
-        padding: 0.5px;
         position: absolute;
         border-right: none;
         background: #00ABAA;
         opacity: 0;
+        box-shadow: inset 0px 0px 0px, 0px 0px 0px 2px rgb(0, 171, 170);
       }
     }
     input[type=checkbox] {
@@ -82,6 +89,10 @@
     display: inline-block;
     bottom: 4px;
     position: relative;
+    color: #777777;
+  }
+  .drop-radio{
+    top: 6px;
   }
   label {
     width: 13px;
@@ -93,7 +104,7 @@
     background: #fbfbfb;
     background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
     border-radius: 50%;
-    box-shadow: inset 0 0px 0px white, 0px 0px 3px #040404;
+    box-shadow: inset 1px 1px 1px white, 0px 0px 2px 1px rgba(0, 0, 0, 0.93);
     &:after {
       content: "\f192";
       width: 15px;

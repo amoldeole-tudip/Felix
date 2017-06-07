@@ -3,12 +3,12 @@ import {AuthenticationHelper} from "../../app.authentication";
 import { Router }       from '@angular/router';
 
 @Component({
-  selector: 'dashboard',
+  selector: 'audience',
   encapsulation: ViewEncapsulation.None,
-  styles: [require('./dashboard.scss')],
-  template: require('./dashboard.html')
+  styles: [require('./audience.scss')],
+  template: require('./audience.html')
 })
-export class Dashboard {
+export class Audience{
 
   constructor(private authentication: AuthenticationHelper,  private router: Router) {
     if(!this.authentication.isLoggedIn()){

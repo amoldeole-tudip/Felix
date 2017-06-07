@@ -26,7 +26,9 @@ const routes: Routes = [
       { path: 'dashboard', loadChildren: () => System.import('./dashboard/dashboard.module'), canActivate:[LoginGuard] },
       { path: 'campaign/createCampaign', loadChildren: () => System.import('./createCampaign/createCampaign.module')},
       { path: 'campaign/viewCampaign', loadChildren: () => System.import('./viewCampaign/viewCampaign.module')},
-      { path: 'campaign/drafts', loadChildren: () => System.import('./drafts/drafts.module')}
+      { path: 'campaign/drafts', loadChildren: () => System.import('./drafts/drafts.module')},
+      { path: 'audience', loadChildren: () => System.import('./audience/audience.module'), canActivate:[LoginGuard] },
+      { path: 'settings', loadChildren: () => System.import('./settings/settings.module'), canActivate:[LoginGuard] }
       ]
   }
 ];

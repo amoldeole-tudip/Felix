@@ -27,10 +27,7 @@ export class Pages {
   public currentYear;
   constructor(private authentication: AuthenticationHelper,  private router: Router) {
     if(!this.authentication.isLoggedIn()){
-      this.router.navigate(['/login']);
-    }
-    else if(this.authentication.isLoggedIn()){
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['login']);
     }
   }
 
