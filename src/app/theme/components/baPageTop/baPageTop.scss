@@ -85,7 +85,7 @@ width: 100%;
   height: 0;
   position: absolute;
   top: -7px;
-  right: 17px;
+  right: 32px;
 }
 ul.dropdown-menu.top-dropdown-menu.profile-dropdown{
   left: -18px;
@@ -129,10 +129,12 @@ ul.dropdown-menu.top-dropdown-menu.profile-dropdown{
   color: #00aaa9;
 }
 .top-dropdown-menu.profile-dropdown a{
-  color: black !important;
+  color: #fff !important;
+  text-align: center;
 }
 .top-dropdown-menu.profile-dropdown a:hover {
-  color: black !important;
+  color: #fff !important;
+  text-align: center;
 }
 a.refresh-data {
   color: $sidebar-text;

@@ -1,8 +1,8 @@
 import {Component, ViewEncapsulation, ViewChild, Input, OnChanges}       from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Attribute, Filto, filto_attr1, Filter_Attr, user_actions} from './data-model';
+import {Attribute, user_actions} from './data-model';
 import {Delay, dropdown_attribute, segment, action} from './data-model';
-import {conditions, Filters, Campaign, attribute_values} from './data-model';
+import {conditions, Campaign, attribute_values} from './data-model';
 import {AuthenticationHelper } from "../../app.authentication";
 import { Router }       from '@angular/router';
 
@@ -14,7 +14,7 @@ import { Router }       from '@angular/router';
 })
 
 export class CreateCampaign implements OnChanges {
-    @Input() hero: Campaign;
+    @Input() saveCampaign: Campaign;
 
     campaignForm: FormGroup;
     nameChangeLog: string[] = [];
@@ -42,20 +42,19 @@ export class CreateCampaign implements OnChanges {
 
     createForm() {
         this.campaignForm = this.fb.group({
-            campaign_name: ['', Validators.compose([Validators.required, Validators.minLength(2)
-                , Validators.maxLength(100)])],
-            android: '',
-            iOS: '',
-            web: '',
+            campaign_name: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
+            android: [''],
+            iOS: [''],
+            web: [''],
             target_audience: ['', Validators.compose([Validators.required])],
             user_action: ['', Validators.compose([Validators.required])],
             attributes: this.fb.array([]),
-            trigger_message: ['', Validators.compose([Validators.required])],
+            trigger_message: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(100)])],
             trigger_message_delay: this.delays[1].id,
-            min_delay: ['', Validators.compose([Validators.required])],
+            min_delay: [''],
             filter_user_action: this.conditions[0].id,
             min_intel_delay: this.delays[1].id,
-            max_delay: ['', Validators.compose([Validators.required])],
+            max_delay: [''],
             delayOptimization: '',
             max_intel_delay: this.delays[1].id,
             filters: this.fb.array([
@@ -69,12 +68,12 @@ export class CreateCampaign implements OnChanges {
             filter_action_name: '',
             filter_user_action: '',
             action_value: '',
-            action_input: '',
+            action_input: ['', Validators.compose([Validators.required])],
             filterAttributes: this.fb.array([
                 this.fb.group({
-                    filter_attribute_name: ['', Validators.required],
-                    filter_attribute_action: ['', Validators.required],
-                    filter_attribute_value: ['', Validators.required]
+                    filter_attribute_name: [''],
+                    filter_attribute_action: [''],
+                    filter_attribute_value: ['']
                 })
             ])
         });
@@ -114,11 +113,11 @@ export class CreateCampaign implements OnChanges {
 
     removeFilterAttribute(i, x) {
         let control = < FormArray > this.campaignForm.controls['filters'];
-        let newCont = control.controls[i];
-        let arrCont = newCont;
-        this.data = arrCont;
-        let arry = this.data.controls['filterAttributes'];
-        arry.controls.splice(x, 1);
+        let newControll = control.controls[i];
+        let arrayControll = newControll;
+        this.data = arrayControll;
+        let AttrArray = this.data.controls['filterAttributes'];
+        AttrArray.controls.splice(x, 1);
         this.campaignForm.value.filters[i].filterAttributes.splice(x, 1);
     }
 
@@ -130,20 +129,6 @@ export class CreateCampaign implements OnChanges {
         return this.campaignForm.get('attributes') as FormArray;
     };
 
-    get filters(): FormArray {
-        return this.campaignForm.get('filters') as FormArray;
-    };
-
-    get Attr(): FormArray {
-        return this.campaignForm.get('Attr') as FormArray;
-    }
-
-    setAttributes(attributes: Attribute[]) {
-        const attributeFGs = attributes.map(attribute => this.fb.group(attribute));
-        const attributeFormArray = this.fb.array(attributeFGs);
-        this.campaignForm.setControl('attributes', attributeFormArray);
-    }
-
     addAttribute() {
         this.attributes.push(this.fb.group(new Attribute()));
     }
@@ -154,49 +139,14 @@ export class CreateCampaign implements OnChanges {
     }
 
     onSubmit() {
-        this.hero = this.prepareSaveHero();
-        console.log(this.hero)
+        this.saveCampaign = this.prepareSaveHero();
         this.ngOnChanges();
         this.step = 2;
     }
 
     prepareSaveHero(): Campaign {
-        const formModel = this.campaignForm.value;
-
-        // deep copy of form model lairs
-        const secretLairsDeepCopy: Attribute[] = formModel.attributes.map(
-            (attribute: Attribute) => Object.assign({}, attribute)
-        );
-
-        const filtersDeepCopy: Filters[] = formModel.attributes.map(
-            (attribute: Filters) => Object.assign({}, attribute)
-        );
-
-        // return new `Campaign` object containing a combination of original campaign value(s)
-        // and deep copies of changed form model values
-        const saveHero: Campaign = {
-            campaign_name: formModel.campaign_name as string,
-            android: formModel.android as string,
-            iOS: formModel.iOS as string,
-            web: formModel.web as string,
-            target_audience: formModel.target_audience as string,
-            trigger_message: formModel.target_audience as string,
-            user_action: formModel.user_action as string,
-            attributes: secretLairsDeepCopy,
-            filters: filtersDeepCopy,
-        };
-        return saveHero;
-    }
-
-    revert() {
-        this.ngOnChanges();
-    }
-
-    logNameChange() {
-        const nameControl = this.campaignForm.get('campaign_name');
-        nameControl.valueChanges.forEach(
-            (value: string) => this.nameChangeLog.push(value)
-        );
+        const saveCampaign = this.campaignForm.value;
+        return saveCampaign;
     }
 
 }
