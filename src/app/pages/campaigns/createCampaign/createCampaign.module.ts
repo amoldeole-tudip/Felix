@@ -17,4 +17,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
   ]
 })
-export default class createCampaignModule {}
+export default class CreateCampaignModule {}

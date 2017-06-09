@@ -1,12 +1,9 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UtilityHelper {
-
-    UserData: any = [];
-
+    userData: any = [];
     constructor() {
-
     }
 
     getFormattedDate(dates): any {
@@ -21,5 +18,4 @@ export class UtilityHelper {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         });
     }
-
 }

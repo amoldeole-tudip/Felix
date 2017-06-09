@@ -134,7 +134,7 @@
                                     <div class="col-md-12 noPadding">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <select class="form-control" formControlName="attribute_name">
+                                                <select class="form-control" formControlName="attributeName">
                                                     <option value="" disabled="disabled" selected hidden>Select
                                                         Attribute
                                                     </option>
@@ -145,7 +145,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <select class="form-control" formControlName="attribute_value">
+                                            <select class="form-control" formControlName="attributeValue">
                                                 <option value="" disabled="disabled" selected hidden>Select Value
                                                 </option>
                                                 <option *ngFor="let attr_value of attributeValues" [value]="attr_value">
@@ -421,7 +421,6 @@
         </form>
     </div>
 </div>
-
 <div *ngIf="this.step == 2">
     <br>
     <br>

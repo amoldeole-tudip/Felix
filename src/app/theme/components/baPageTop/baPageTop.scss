@@ -20,12 +20,12 @@
   background-color: $default;
   position: fixed;
   z-index: 904;
-  border: 1px solid $border;
-  height: 66px;
+  border-bottom: 1px solid $border;
+  height: 56px;
   width: 100%;
   min-width: $resMin;
   padding: 0 30px 0 0;
-left: 0;
+  left: 1px;
   .dropdown-toggle::after {
     display: none;
   }
@@ -41,15 +41,16 @@ a.al-logo {
   color: $sidebar-text;
   display: block;
   background-color:$logo-bg;
-  font-size: 24px;
+  font-size: 20px;
   border-right: 1px solid $border;
   margin-left: -1px;
   font-family: $font-family;
   white-space: nowrap;
   font-weight: bolder;
   float: left;
-  padding-left: 25px;
-  line-height: 66px;
+  padding-left: 30px;
+  text-shadow: 0px 1px 0px #84868C;
+  line-height: 55px;
   width: $sidebar-width;
   height: 100%;
   span {
@@ -66,10 +67,12 @@ a.al-logo {
 .activeTitle{
   display: inline-block;
   height: 100%;
-  line-height: 60px;
+  line-height: 50px;
+  color: rgba(66, 68, 77, 0.7);
   min-width: 20%;
+  text-shadow: 0px 1px 0px #84868C;
   font-weight: 600;
-  padding-left: 3%;
+  padding-left: 50px;
   font-size: 16px;
   position: absolute;
 }
@@ -110,7 +113,7 @@ ul.dropdown-menu.top-dropdown-menu.profile-dropdown{
   transition: all .15s ease-in-out;
   padding: 0;
   border: 0;
-  line-height: 66px;
+  line-height: 55px;
   opacity: 1;
   position: relative;
   a {

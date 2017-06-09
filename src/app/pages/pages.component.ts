@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import {AuthenticationHelper} from "../app.authentication";
+import { AuthenticationHelper } from '../app.authentication';
 import { Router }       from '@angular/router';
 
 @Component({
@@ -26,7 +26,7 @@ import { Router }       from '@angular/router';
 export class Pages {
   public currentYear;
   constructor(private authentication: AuthenticationHelper,  private router: Router) {
-    if(!this.authentication.isLoggedIn()){
+    if (!this.authentication.isLoggedIn()){
       this.router.navigate(['login']);
     }
   }

@@ -6,7 +6,7 @@ $angle-right: "\f101";
 .al-sidebar {
   width: $sidebar-width;
   min-width: $sidebar-width;
-  top: 66px; //Used for dashboard left panel
+  top: 56px;//Used for dashboard left panel
   left: 0;
   z-index: 1001;
   display: block;
@@ -14,8 +14,7 @@ $angle-right: "\f101";
   background-color: $logo-bg;
   height: 100%;
   position: fixed;
-  border-right: thin solid rgba(0,0,0,0.2);
-  border-top: thin solid rgba(0,0,0,0.2);
+  border-right: thin solid rgba(0, 0, 0, 0.2);
 }
 
 .al-sidebar-list {
@@ -41,9 +40,7 @@ $angle-right: "\f101";
   position: relative;
   float: none;
   padding: 0;
-  border-right: 1px solid $border;
   border-bottom: 1px solid $border;
-  //border-bottom: 1px solid #034225;
   &.selected:not(.with-sub-menu) {
     background-color: $logo-bg;
     a.al-sidebar-list-link {
@@ -51,7 +48,6 @@ $angle-right: "\f101";
       font-weight: bold;
       background: #fff;
       border-top: 17px solid transparent;
-      /*border-right: 14px solid #fff;*/
       border-bottom: 17px solid transparent;
       b {
         color: $submenu-text;
@@ -87,13 +83,13 @@ $angle-right: "\f101";
 
 a.al-sidebar-list-link {
   display: block;
-  height: 35px;
-  padding-left: 25px;
-  text-shadow: none;
-  font-size: 15px;
+  height: 47px;
+  padding-left: 28px;
+  text-shadow: 0px 0.01pt 0px #84868C;
+  font-size: 11.7pt;
   text-decoration: none;
-  color: $sidebar-text;
-  line-height: 35px;
+  color: rgba(65, 67, 76, 0.75);
+  line-height: 43px;
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
@@ -118,8 +114,8 @@ a.al-sidebar-list-link {
     text-shadow: none;
     font-size: 20px;
     position: absolute;
-    right: 10px;
-    top: 8px;
+    right: 20px;
+    top: 13px;
     padding: 0;
     text-align: center;
     color: $submenu-text;
@@ -153,13 +149,13 @@ a.al-sidebar-list-link {
     position: relative;
     a {
       display: block;
-      text-shadow: none;
+      text-shadow: 0px 1px 0px rgba(0, 170, 169, 0.25);
       font-size: 14px;
       text-decoration: none;
-      color: $submenu-text;
-      padding-left: 35px;
-      height: auto;
-      line-height: 29px;
+      color: rgba(0, 171, 174, 0.69);
+      padding-left: 49px;
+      height: 40px;
+      line-height: 35px;
       &:hover {
         color: $submenu-text;
       }

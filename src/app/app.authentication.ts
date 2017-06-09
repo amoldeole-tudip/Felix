@@ -8,8 +8,8 @@ export class AuthenticationHelper {
   public setToken(token){
     localStorage.setItem('token', token);
   }
-  public setApiKey(api_key){
-    localStorage.setItem('api-key', api_key);
+  public setApiKey(apiKey){
+    localStorage.setItem('api-key', apiKey);
   }
   public getToken(){
     return localStorage.getItem('token');

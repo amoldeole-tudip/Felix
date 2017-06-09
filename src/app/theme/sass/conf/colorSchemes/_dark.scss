@@ -1,7 +1,7 @@
 $default: #ffffff;
 $body-bg: #e2e2e2;
 $logo-bg: #FBFBFB;
-$sidebar-width: 230px;
+$sidebar-width: 270px;
 
 $default-text: #666666;
 $content-text: $default-text;
@@ -10,7 +10,7 @@ $help-text: #ff0000;
 $label-text: #ffffff;
 $disabled: #dddddd;
 $disabled-bg: tint($disabled, 15%);
-$border: #EFEFEF;
+$border: rgba(0, 0, 0, 0.13);
 $border-light: tint($border, 15%);
 $input-border: shade($border, 5%);
 $input-background: #ffffff;

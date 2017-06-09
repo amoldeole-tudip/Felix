@@ -1,11 +1,11 @@
 import { Routes, RouterModule }  from '@angular/router';
-import { CreateCampaign } from './createCampaign.component';
+import { Campaigns } from './campaigns.component';
 
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   {
-    path: '',
-    component: CreateCampaign,
+    path: 'campaigns',
+    component: Campaigns,
     children: [
     ]
   }

@@ -3,6 +3,6 @@
  */
 
 export class AppConstant{
-    //constant variables
+    // constant variables
     LogoImage = 'assets/img/logo.png';
 }

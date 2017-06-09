@@ -1,12 +1,12 @@
 import { Routes, RouterModule }  from '@angular/router';
 
-import { resetPassword } from './resetPassword.component';
+import { ResetPassword } from './resetPassword.component';
 
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   {
     path: '',
-    component: resetPassword
+    component: ResetPassword
   }
 ];
 

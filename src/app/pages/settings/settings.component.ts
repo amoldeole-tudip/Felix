@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
-import {AuthenticationHelper} from "../../app.authentication";
+import { Component, ViewEncapsulation } from '@angular/core';
+import { AuthenticationHelper } from '../../app.authentication';
 import { Router }       from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router }       from '@angular/router';
 export class Settings {
 
   constructor(private authentication: AuthenticationHelper,  private router: Router) {
-    if(this.authentication.isLoggedIn()){
+    if (this.authentication.isLoggedIn()){
       this.router.navigate(['settings']);
     }
     else {

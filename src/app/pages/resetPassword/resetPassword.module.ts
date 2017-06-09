@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { CommonModule }  from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { resetPassword } from './resetPassword.component';
+import { ResetPassword } from './resetPassword.component';
 import { routing }       from './resetPassword.routing';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { routing }       from './resetPassword.routing';
     routing
   ],
   declarations: [
-    resetPassword
+    ResetPassword
   ]
 })
-export default class ResetPassword {}
+export default class ResetPasswordModule {}

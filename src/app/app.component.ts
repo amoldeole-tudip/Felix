@@ -10,7 +10,7 @@ import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 import { UserService } from './Services/user.ts';
 import { HttpClientHelper } from './app.httpClient';
 import { Router }       from '@angular/router';
-import {AuthenticationHelper} from "../app/app.authentication";
+import { AuthenticationHelper } from '../app/app.authentication';
 /*
  * App Component
  * Top Level Component

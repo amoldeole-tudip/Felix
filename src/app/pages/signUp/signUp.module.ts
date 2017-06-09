@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { CommonModule }  from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { signUp } from './signUp.component';
+import { SignUp } from './signUp.component';
 import { routing }       from './signUp.routing';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { routing }       from './signUp.routing';
     routing
   ],
   declarations: [
-    signUp
+    SignUp
   ]
 })
-export default class SignUp {}
+export default class SignUpModule {}

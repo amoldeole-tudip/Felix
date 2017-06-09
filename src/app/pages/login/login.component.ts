@@ -1,13 +1,13 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import {Router}  from '@angular/router';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
-import {UserService} from '../../Services/user';
-import {AuthenticationHelper} from '../../app.authentication';
-import {BaThemeSpinner} from '../../theme/services';
-import {EmailValidator} from '../../theme/validators/email.validator';
-import {UtilityHelper} from '../shared/utility';
-import {AppConstant} from '../../app.constant';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { FormGroup , FormBuilder, Validators } from '@angular/forms';
+import { Router }  from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { UserService } from '../../Services/user';
+import { AuthenticationHelper } from '../../app.authentication';
+import { BaThemeSpinner } from '../../theme/services';
+import { EmailValidator } from '../../theme/validators/email.validator';
+import { UtilityHelper } from '../shared/utility';
+import { AppConstant } from '../../app.constant';
 @Component({
     selector: 'login',
     encapsulation: ViewEncapsulation.None,
@@ -25,7 +25,7 @@ export class Login extends AppConstant{
 
     constructor(fb: FormBuilder, private router: Router, public toastr: ToastsManager,
                 private userService: UserService, private _spinner: BaThemeSpinner,
-                private authentication: AuthenticationHelper, private utility:UtilityHelper) {
+                private authentication: AuthenticationHelper, private utility: UtilityHelper) {
         super();
         this.form = fb.group({
             'username': ['', Validators.compose([Validators.required, EmailValidator.validate])],
@@ -41,7 +41,9 @@ export class Login extends AppConstant{
     onSubmit(loginData: any): void {
         this._spinner.show();
         this.submitted = true;
-        loginData.deviceToken = 'cKYXZxrvFdY:APA91bEBOQIKWA-CYvaUnGKj8XjnamQsDXP1DKqb8Wb1td_5itlQ3H6OAaInFqphu2sAnSJHxeZzmVQkO7JcFRD8U3VJYcwmlE0IhgPuCXSya5Rz-naPd9UYUFNWlTqqtUfgZaIep-GN';
+        loginData.deviceToken = 'cKYXZxrvFdY:APA91bEBOQIKWA-CYvaUnGKj8XjnamQsDXP1DKqb8Wb1td_' +
+            '5itlQ3H6OAaInFqphu2sAnSJHxeZzmVQkO7JcFRD8U3VJYcwmlE0IhgPuCXSya5Rz-' +
+            'naPd9UYUFNWlTqqtUfgZaIep-GN';
         loginData.deviceOS = 'android';
         this.userService.userLogin(loginData).subscribe(
             data => this.loginSuccess(data),
@@ -59,9 +61,9 @@ export class Login extends AppConstant{
         this.authentication.setToken(result.success.data.token);
         this._spinner.hide();
         this.router.navigate(['dashboard']);
-        if(result.success.data.user){
+        if (result.success.data.user){
             // to save loggedIn userName
-            localStorage.setItem('userName',result.success.data.user.basic.firstName);
+            localStorage.setItem('userName', result.success.data.user.basic.firstName);
         }
     }
 
@@ -69,9 +71,9 @@ export class Login extends AppConstant{
      * if err
      * @param error
      */
-    loginFail(Error) {
-        if (Error.error && Error.error.message) {
-            this.toastr.error(Error.error.message);
+    loginFail(error) {
+        if (error.error && error.error.message) {
+            this.toastr.error(error.error.message);
         } else {
             this.toastr.error('Server error');
         }

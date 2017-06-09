@@ -1,12 +1,12 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import {Router}  from '@angular/router';
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
-import {UserService} from '../../Services/user';
-import {AuthenticationHelper} from '../../app.authentication';
-import {BaThemeSpinner} from '../../theme/services';
-import {EmailValidator} from '../../theme/validators/email.validator';
-import {AppConstant} from '../../app.constant';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router }  from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { UserService } from '../../Services/user';
+import { AuthenticationHelper } from '../../app.authentication';
+import { BaThemeSpinner } from '../../theme/services';
+import { EmailValidator } from '../../theme/validators/email.validator';
+import { AppConstant } from '../../app.constant';
 @Component({
     selector: 'forgotPassword',
     encapsulation: ViewEncapsulation.None,
@@ -15,7 +15,7 @@ import {AppConstant} from '../../app.constant';
     providers: [UserService]
 })
 
-export class forgotPassword extends AppConstant{
+export class ForgotPassword extends AppConstant{
     form: FormGroup;
     submitted: boolean = false;
     data: any;
@@ -29,9 +29,8 @@ export class forgotPassword extends AppConstant{
         });
     }
 
-    //onSubmit
-    onSubmit(values : any) : void {
-        console.log('email', values);
+    // onSubmit
+    onSubmit(values: any): void {
         let userEmail = {
             'email': values.email
          }

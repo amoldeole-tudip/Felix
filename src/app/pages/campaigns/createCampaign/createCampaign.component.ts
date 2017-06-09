@@ -1,9 +1,9 @@
-import {Component, ViewEncapsulation, ViewChild, Input, OnChanges}       from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Attribute, user_actions} from './data-model';
-import {Delay, dropdown_attribute, segment, action} from './data-model';
-import {conditions, Campaign, attribute_values} from './data-model';
-import {AuthenticationHelper } from "../../app.authentication";
+import { Component, ViewEncapsulation, Input, OnChanges }       from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Attribute, userActions } from './data-model';
+import { delay, dropdownAttribute, segment, action } from './data-model';
+import { conditions, Campaign, attributevalues } from './data-model';
+import { AuthenticationHelper } from '../../../app.authentication';
 import { Router }       from '@angular/router';
 
 @Component({
@@ -17,23 +17,23 @@ export class CreateCampaign implements OnChanges {
     @Input() saveCampaign: Campaign;
 
     campaignForm: FormGroup;
-    nameChangeLog: string[] = [];
-    dropdownAttributes = dropdown_attribute;
-    attributeValues = attribute_values;
+    dropdownAttributes = dropdownAttribute;
+    attributeValues = attributevalues;
     segment = segment;
     actions = action;
-    userActions = user_actions;
-    delays = Delay;
+    userActions = userActions;
+    delays = delay;
     conditions = conditions;
     public submitted: boolean = false;
     step: any = 1;
     data: any;
 
-    constructor(private fb: FormBuilder, private authentication: AuthenticationHelper, private router: Router) {
-        if(!this.authentication.isLoggedIn()){
+    constructor(private fb: FormBuilder, private authentication: AuthenticationHelper
+        , private router: Router) {
+        if (!this.authentication.isLoggedIn()){
             this.router.navigate(['/login']);
         }
-        else if(this.authentication.isLoggedIn()){
+        else if (this.authentication.isLoggedIn()){
             this.router.navigate(['campaign/createCampaign']);
         }
         this.createForm();
@@ -42,14 +42,16 @@ export class CreateCampaign implements OnChanges {
 
     createForm() {
         this.campaignForm = this.fb.group({
-            campaign_name: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
+            campaign_name: ['', Validators.compose([Validators.required
+                , Validators.minLength(2), Validators.maxLength(40)])],
             android: [''],
             iOS: [''],
             web: [''],
             target_audience: ['', Validators.compose([Validators.required])],
             user_action: ['', Validators.compose([Validators.required])],
             attributes: this.fb.array([]),
-            trigger_message: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(100)])],
+            trigger_message: ['', Validators.compose([Validators.required
+                , Validators.minLength(2), Validators.maxLength(100)])],
             trigger_message_delay: this.delays[1].id,
             min_delay: [''],
             filter_user_action: this.conditions[0].id,
@@ -116,8 +118,8 @@ export class CreateCampaign implements OnChanges {
         let newControll = control.controls[i];
         let arrayControll = newControll;
         this.data = arrayControll;
-        let AttrArray = this.data.controls['filterAttributes'];
-        AttrArray.controls.splice(x, 1);
+        let attrArray = this.data.controls['filterAttributes'];
+        attrArray.controls.splice(x, 1);
         this.campaignForm.value.filters[i].filterAttributes.splice(x, 1);
     }
 
